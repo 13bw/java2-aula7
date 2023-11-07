@@ -9,15 +9,15 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 @Entity
-@Table(name="livros")
+@Table(name = "livros")
 public class Livro {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    
+
     private String titulo;
     private String isbn;
-    
+
     @ManyToOne
     @JoinColumn(name = "id_genero")
     private Genero genero;
@@ -28,6 +28,30 @@ public class Livro {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public Genero getGenero() {
+        return genero;
+    }
+
+    public void setGenero(Genero genero) {
+        this.genero = genero;
     }
 
 }
